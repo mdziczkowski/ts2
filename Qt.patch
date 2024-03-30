@@ -1,0 +1,26 @@
+--- Qt.py	2022-06-14 10:13:37.000000000 +0200
++++ Qt_patched.py	2024-03-30 14:53:30.702034906 +0100
+@@ -31,8 +31,19 @@
+ # but in PyQt land its at `PyQt5.QtCore.Qt.AlignLeft` .. phew
+ # So this imports for shortcut.. ta snake
+ 
+-from PyQt5.QtCore import Qt
+ 
+-from PyQt5 import QtCore
+-from PyQt5 import QtGui
+-from PyQt5 import QtWidgets
++try:
++	from PyQt5.QtCore import Qt
++	from PyQt5 import QtCore
++	from PyQt5 import QtGui
++	from PyQt5 import QtWidgets
++except ImportError:
++	pass
++
++try:
++	from PyQt6.QtCore import Qt
++	from PyQt6 import QtCore
++	from PyQt6 import QtGui
++	from PyQt6 import QtWidgets
++except ImportError:
++	pass
